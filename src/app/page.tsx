@@ -33,7 +33,7 @@ export default function Home() {
     const messageToSend = inputValue.trim();
     if (!messageToSend) return;
     setInputValue("");
-    // await handleSubmit(messageToSend);
+    await handleSubmit(messageToSend);
   };
 
   return (
