@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +16,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
+      >
+        <TooltipProvider>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex flex-col flex-1 bg-muted/50 dark:bg-background px-4">
+            {children}
+          </main>
+        </div>
+        </TooltipProvider>
+      </body>
     </html>
   );
 }
